@@ -1,3 +1,4 @@
+import './cart_model.dart';
 import 'package:flutter/material.dart';
 
 class ListPage extends StatelessWidget {
@@ -7,7 +8,7 @@ class ListPage extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (ctx, idx) => ListTile(
             title: Text("商品 $idx"),
-            onTap: () => print(idx.toString()),
+            onTap: () => Cart().add(idx),
           ),
     );
   }
