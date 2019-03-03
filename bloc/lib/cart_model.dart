@@ -1,20 +1,22 @@
 class Cart {
   Cart(this._items);
 
+  Cart.from(Cart old) {
+    _items = List.from(old.list);
+  }
+
   List<int> _items = [];
 
-  Cart add(int item) {
+  void add(int item) {
     if (_items.indexOf(item) == -1) {
       _items.add(item);
     }
-    return Cart(_items);
   }
 
-  Cart remove(int item) {
+  void remove(int item) {
     if (_items.indexOf(item) != -1) {
       _items.remove(item);
     }
-    return Cart(_items);
   }
 
   get list {

@@ -23,10 +23,10 @@ class CartBloc extends Bloc<CartEvent, Cart> {
   Stream<Cart> mapEventToState(Cart currentState, CartEvent event) async* {
     switch (event.type) {
       case CartEventType.add:
-        yield currentState.add(event.id);
+        yield Cart.from(currentState)..add(event.id);
         break;
       case CartEventType.remove:
-        yield currentState.remove(event.id);
+        yield Cart.from(currentState)..remove(event.id);
     }
   }
 }
