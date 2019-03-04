@@ -1,6 +1,5 @@
 import 'package:base/cart_model.dart';
 import 'package:bloc/bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 enum CartEventType { add, remove }
 
@@ -23,7 +22,10 @@ class CartBloc extends Bloc<CartEvent, Cart> {
   Stream<Cart> mapEventToState(Cart currentState, CartEvent event) async* {
     switch (event.type) {
       case CartEventType.add:
+//        await Future.delayed(Duration(seconds: 1));
         yield Cart.from(currentState)..add(event.id);
+//        await Future.delayed(Duration(seconds: 1));
+//        yield Cart.from(currentState)..remove(event.id);
         break;
       case CartEventType.remove:
         yield Cart.from(currentState)..remove(event.id);
